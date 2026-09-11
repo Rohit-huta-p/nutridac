@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NutriDac — Eat Nutritious, Feel Delicious</title>
+<meta name="description" content="NutriDac is building protein-rich, nutrition-first food for busy lives — without giving up on taste. Join the founding waitlist for early access, launch pricing and first taste.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="NutriDac — Eat Nutritious, Feel Delicious">
+<meta property="og:description" content="A new nutrition-first food brand in the making. Join the founding waitlist.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="logo.jpg">
+<meta name="theme-color" content="#153420">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+/* ============================================================
+   NutriDac — pre-launch waitlist landing. Mobile-first.
+   Base styles = phone; min-width queries add larger layouts.
+   ============================================================ */
+:root{
+  --forest-deep:#153420; --forest-deep-2:#1c4429; --forest-line:#2f5a3c;
+  --forest:#1f5130; --forest-2:#2c6b41; --leaf:#7fb233; --leaf-ink:#4f7d1e;
+  --cream:#f6f1e5; --cream-2:#efe7d5; --sand:#ecdcb4;
+  --gold:#d19a2b; --gold-soft:#e7c98a; --apple:#c0402c;
+  --ink:#241c13; --ink-soft:#6f6353; --line:#e0d6bf;
+  --on-dark:#eff0e2; --on-dark-soft:#aebf9d;
+  --sans:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  --serif:"Fraunces","Iowan Old Style",Georgia,serif;
+  --wrap:1120px; --pad:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;margin:0;
+  letter-spacing:-.015em;text-wrap:balance}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--leaf);color:#12300d}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.band{padding:64px 0}
+.eyebrow{font-weight:700;font-size:11.5px;letter-spacing:.19em;text-transform:uppercase;color:var(--leaf-ink);margin-bottom:14px}
+.lede{font-size:17px;color:var(--ink-soft);line-height:1.55}
+h2.big{font-size:31px;margin-bottom:16px}
+.dark{background:var(--forest-deep);color:var(--on-dark)}
+.dark h2,.dark h3{color:var(--on-dark)}
+.dark .eyebrow{color:var(--gold-soft)}
+.dark .lede{color:var(--on-dark-soft)}
+.cream2{background:var(--cream-2)}
+.sand{background:var(--sand)}
+.sand .eyebrow{color:#9a6f13}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:700;
+  font-size:15px;border-radius:999px;padding:14px 24px;border:1.5px solid transparent;cursor:pointer;
+  transition:transform .15s,box-shadow .2s,background .2s;min-height:48px}
+.btn:active{transform:scale(.97)}
+.btn-gold{background:var(--gold);color:#1a2b12;box-shadow:0 12px 24px -12px rgba(209,154,43,.85)}
+.btn-gold:hover{background:#e0a838}
+.btn-green{background:var(--forest);color:var(--cream)}
+.btn-green:hover{background:var(--forest-2)}
+.btn-ghost{background:transparent;border-color:currentColor}
+@media(hover:hover){.btn:hover{transform:translateY(-2px)}}
+
+/* ---------- header ---------- */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,box-shadow .3s,padding .3s;padding:14px 0}
+.nav .row{display:flex;align-items:center;justify-content:space-between}
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:21px;color:var(--on-dark);letter-spacing:-.01em}
+.brand i{color:var(--leaf);font-style:normal}
+.logo-chip{width:38px;height:38px;border-radius:50%;background:#fff;overflow:hidden;flex:0 0 auto;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px -3px rgba(0,0,0,.45)}
+.logo-chip img{width:100%;height:100%;object-fit:contain}
+.nav.scrolled{background:rgba(246,241,229,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding:9px 0}
+.nav.scrolled .brand{color:var(--forest)}
+.nav .btn{padding:10px 18px;min-height:42px;font-size:14px}
+.nav .nav-cta{background:var(--gold);color:#1a2b12}
+.nav:not(.scrolled) .nav-cta{background:transparent;border-color:var(--gold-soft);color:var(--gold-soft)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding:118px 0 64px}
+.hero::before{content:"";position:absolute;top:-20%;right:-30%;width:80%;height:150%;
+  background:radial-gradient(closest-side,rgba(127,178,51,.18),transparent 72%);pointer-events:none}
+.hero::after{content:"";position:absolute;left:-25%;bottom:-40%;width:70%;height:120%;
+  background:radial-gradient(closest-side,rgba(209,154,43,.1),transparent 70%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.soon{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;padding:7px 13px;border-radius:999px;border:1px solid var(--forest-line);
+  color:var(--gold-soft);background:rgba(0,0,0,.16);margin-bottom:22px}
+.soon .blip{width:7px;height:7px;border-radius:50%;background:var(--leaf)}
+.hero h1{font-size:44px;letter-spacing:-.03em;margin:6px 0 20px;color:var(--on-dark)}
+.hero h1 em{font-style:italic;color:var(--leaf)}
+.hero .lede{max-width:34ch}
+.hero .lede b{color:var(--on-dark)}
+.capture{margin-top:26px;max-width:460px}
+.capture form{display:flex;gap:8px;background:rgba(0,0,0,.2);border:1px solid var(--forest-line);
+  border-radius:999px;padding:6px 6px 6px 6px;align-items:center;flex-wrap:wrap}
+.capture input{flex:1 1 160px;min-width:0;background:transparent;border:0;color:var(--on-dark);
+  font-family:var(--sans);font-size:15px;padding:12px 14px}
+.capture input::placeholder{color:var(--on-dark-soft)}
+.capture input:focus{outline:none}
+.capture .btn-gold{flex:0 0 auto}
+.fine{margin-top:11px;font-size:12.5px;color:var(--on-dark-soft)}
+.hero-ok{display:none;margin-top:20px;background:var(--forest-deep-2);border:1px solid var(--forest-line);
+  border-radius:14px;padding:16px 18px;max-width:460px;font-size:14.5px;color:var(--on-dark)}
+.hero-ok b{color:var(--leaf)}
+
+.marquee{margin-top:42px;border-top:1px solid var(--forest-line);border-bottom:1px solid var(--forest-line);
+  overflow:hidden;white-space:nowrap;padding:14px 0}
+.marquee span{display:inline-block;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--on-dark-soft)}
+.marquee b{color:var(--leaf);font-style:normal;margin:0 8px}
+@media(prefers-reduced-motion:no-preference){.marquee span{animation:slide 26s linear infinite}}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.hero-product{margin:34px auto 0;max-width:288px}
+.heroArt{max-width:100%;height:auto;filter:drop-shadow(0 26px 46px rgba(0,0,0,.5))}
+@media(prefers-reduced-motion:no-preference){.heroArt{animation:floaty 8s ease-in-out infinite}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* ---------- generic content ---------- */
+.stack>*+*{margin-top:14px}
+.mt{margin-top:26px}
+.grid{display:grid;gap:14px}
+.pillars{display:grid;gap:12px;margin-top:26px}
+.pillar{display:flex;gap:14px;align-items:baseline;padding:16px 0;border-top:1px solid var(--line)}
+.pillar .idx{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:19px;min-width:34px}
+.pillar h3{font-size:19px}
+.pillar p{color:var(--ink-soft);font-size:14.5px;margin-top:3px}
+
+.points{display:grid;gap:12px;margin-top:24px}
+.point{border-left:3px solid var(--leaf);padding:4px 0 4px 16px}
+.point b{display:block;font-family:var(--serif);font-size:18px;color:var(--forest);font-weight:600}
+.point span{color:var(--ink-soft);font-size:14.5px}
+
+/* vision tiles */
+.tiles{display:grid;gap:13px;margin-top:26px}
+.tile{position:relative;border:1px solid var(--line);border-radius:16px;background:var(--cream);
+  padding:22px 20px;overflow:hidden;min-height:118px;display:flex;flex-direction:column;justify-content:flex-end}
+.dark .tile{background:var(--forest-deep-2);border-color:var(--forest-line)}
+.tile .blur{position:absolute;inset:0;opacity:.5;filter:blur(2px)}
+.tile .b1{background:radial-gradient(circle at 70% 20%,rgba(127,178,51,.5),transparent 55%)}
+.tile .b2{background:radial-gradient(circle at 30% 30%,rgba(209,154,43,.45),transparent 55%)}
+.tile .b3{background:radial-gradient(circle at 60% 40%,rgba(46,107,65,.5),transparent 58%)}
+.tile .b4{background:radial-gradient(circle at 40% 25%,rgba(192,64,44,.32),transparent 55%)}
+.tile .tag{position:relative;font-family:var(--mono,ui-monospace,monospace);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px}
+.tile h3{position:relative;font-size:21px;color:var(--forest)}
+.dark .tile h3{color:var(--on-dark)}
+
+/* identities */
+.ids{display:grid;gap:12px;margin-top:26px}
+.idc{border:1px solid var(--line);border-radius:16px;background:var(--cream);padding:20px}
+.idc .k{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:15px}
+.idc h3{font-size:20px;margin:2px 0 6px}
+.idc p{color:var(--ink-soft);font-size:14.5px}
+
+/* benefits (why join) */
+.bens{display:grid;gap:14px;margin-top:26px}
+.ben{display:flex;gap:14px;align-items:flex-start}
+.ben .n{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--forest);color:var(--cream);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-family:var(--serif);font-size:16px}
+.ben h3{font-size:18px}
+.ben p{color:#6a5c3f;font-size:14.5px;margin-top:2px}
+
+/* trust */
+.seal{width:150px;height:150px;border-radius:50%;background:#fff;border:1px solid var(--line);
+  box-shadow:0 18px 40px -18px rgba(31,81,48,.4);display:flex;align-items:center;justify-content:center;
+  padding:10px;margin:0 auto 24px}
+.seal img{border-radius:50%}
+.principles{display:grid;gap:10px;margin-top:22px}
+.principle{display:flex;gap:10px;align-items:center;font-size:15px}
+.principle::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--leaf);flex:0 0 auto}
+
+/* ---------- waitlist form ---------- */
+.formcard{background:var(--forest-deep-2);border:1px solid var(--forest-line);border-radius:20px;
+  padding:22px;margin-top:28px}
+.field{margin-top:16px}
+.field:first-child{margin-top:0}
+.field label{display:block;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--on-dark-soft);margin-bottom:8px}
+.field label .req{color:var(--gold-soft)}
+.field input[type=text],.field input[type=email],.field input[type=tel]{width:100%;height:50px;border-radius:12px;
+  border:1px solid var(--forest-line);background:rgba(0,0,0,.22);color:var(--on-dark);font-family:var(--sans);
+  font-size:15.5px;padding:0 15px}
+.field input::placeholder{color:#8fa384}
+.field input:focus{outline:none;border-color:var(--leaf);box-shadow:0 0 0 3px rgba(127,178,51,.22)}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{font-family:var(--sans);font-size:13.5px;font-weight:600;padding:10px 15px;border-radius:999px;
+  border:1px solid var(--forest-line);color:var(--on-dark);background:transparent;cursor:pointer;min-height:42px;
+  transition:background .15s,border-color .15s,color .15s}
+.chip[aria-pressed=true]{background:var(--leaf);border-color:var(--leaf);color:#12300d}
+.formcard .btn-gold{width:100%;justify-content:center;margin-top:22px}
+.form-ok{display:none;text-align:center;padding:26px 8px}
+.form-ok .big{font-family:var(--serif);font-size:26px;color:var(--on-dark);margin-bottom:8px}
+.form-ok .big em{color:var(--leaf);font-style:normal}
+.form-ok p{color:var(--on-dark-soft)}
+.form-err{display:none;margin-top:14px;color:#ffb4a2;font-size:14px}
+
+/* ---------- final + footer ---------- */
+.final{text-align:center}
+.final h2{font-size:32px;max-width:16ch;margin:0 auto 16px}
+.final .lede{max-width:46ch;margin:0 auto}
+.final .btn{margin-top:24px}
+footer{background:#0f2517;color:var(--on-dark-soft);padding:44px 0 30px;font-size:14px}
+footer .top{display:flex;flex-direction:column;gap:20px}
+footer .brand{color:var(--on-dark)}
+footer .cols{display:flex;flex-wrap:wrap;gap:26px}
+footer a:hover{color:var(--leaf)}
+footer .fine{border-top:1px solid var(--forest-line);margin-top:26px;padding-top:18px;font-size:12.5px;color:#7f9077;line-height:1.6}
+
+/* ---------- sticky mobile CTA ---------- */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(21,52,32,.94);backdrop-filter:blur(8px);border-top:1px solid var(--forest-line);
+  transform:translateY(120%);transition:transform .3s}
+.sticky.show{transform:none}
+.sticky .btn{width:100%;justify-content:center}
+
+/* ---------- reveal (hidden only when JS + motion allowed) ---------- */
+.animate .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.animate .reveal.in{opacity:1;transform:none}
+
+/* ============================================================
+   DESKTOP / TABLET
+   ============================================================ */
+@media(min-width:600px){
+  .points,.tiles,.ids,.bens{grid-template-columns:1fr 1fr}
+  .pillars{grid-template-columns:1fr 1fr;gap:0 34px}
+}
+@media(min-width:760px){
+  :root{--pad:40px}
+  .band{padding:96px 0}
+  .eyebrow{font-size:12px}
+  h2.big{font-size:44px;margin-bottom:18px}
+  .lede{font-size:19px}
+  .hero{padding:150px 0 90px}
+  .hero .grid2{display:grid;grid-template-columns:1.25fr .9fr;gap:50px;align-items:center}
+  .hero h1{font-size:76px}
+  .hero .lede{font-size:20px}
+  .hero-product{margin:0;max-width:430px;justify-self:center}
+  .final h2{font-size:48px}
+  .sticky{display:none}
+  footer .top{flex-direction:row;justify-content:space-between;align-items:flex-start}
+  .formwrap{display:grid;grid-template-columns:1fr .85fr;gap:44px;align-items:start}
+}
+@media(min-width:1000px){
+  .hero h1{font-size:84px}
+  h2.big{font-size:48px}
+  .tiles{grid-template-columns:repeat(4,1fr)}
+  .ids{grid-template-columns:repeat(4,1fr)}
+  .bens{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="nav" id="nav">
+  <div class="wrap row">
+    <a href="#top" class="brand"><span class="logo-chip"><img src="logo.jpg" alt=""></span>Nutri<i>Dac</i></a>
+    <a href="#waitlist" class="btn nav-cta">Join the waitlist</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero dark" id="top">
+  <div class="wrap">
+    <div class="grid2">
+      <div>
+        <div class="eyebrow reveal">A new food brand · in the making</div>
+        <h1 class="reveal">Eat nutritious.<br><em>Feel delicious.</em></h1>
+        <p class="lede reveal">NutriDac is building protein-rich, nutrition-first food for real, busy lives — without giving up on taste. Our first spread is taking shape — <b>join the founding community and be first to taste it.</b></p>
+        <div class="capture reveal">
+          <form id="heroForm" novalidate>
+            <input type="email" name="email" inputmode="email" autocomplete="email" placeholder="you@email.com" aria-label="Email address" required>
+            <button type="submit" class="btn btn-gold">Join the waitlist →</button>
+          </form>
+          <div class="fine">Become a founding member. No spam — just launch news &amp; first taste.</div>
+          <div class="hero-ok" id="heroOk"><b>You're on the list. 🌱</b> Welcome to the founding community — we'll be in touch before launch.</div>
+        </div>
+      </div>
+      <div class="hero-product">
+        <img class="heroArt" src="header-image.webp" width="900" height="849" alt="NutriDac Chocolate Soya Butter — 350g jar, plant-based protein, no added sugar">
+      </div>
+    </div>
+    <div class="marquee reveal" aria-hidden="true">
+      <span>PROTEIN <b>•</b> NUTRITION <b>•</b> TASTE <b>•</b> WELLNESS <b>•</b> PLANT-FORWARD <b>•</b> EVERYDAY FOOD <b>•</b> PROTEIN <b>•</b> NUTRITION <b>•</b> TASTE <b>•</b> WELLNESS <b>•</b> PLANT-FORWARD <b>•</b> EVERYDAY FOOD <b>•</b> </span>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow reveal">Why we're doing this</div>
+    <h2 class="big reveal">Eating better shouldn't mean eating boring.</h2>
+    <p class="lede reveal" style="max-width:60ch">Busy schedules, endless choices, and “healthy” food that's either bland or a chore. Good nutrition falls apart the moment it stops tasting good. We're building the opposite.</p>
+    <div class="points">
+      <div class="point reveal"><b>Busy lives</b><span>Nutrition that works around your day, not against it.</span></div>
+      <div class="point reveal"><b>Better choices</b><span>Food designed with nutrition in mind from the start.</span></div>
+      <div class="point reveal"><b>Real taste</b><span>Because healthy should never feel like a compromise.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE IDEA -->
+<section class="band cream2">
+  <div class="wrap">
+    <div class="eyebrow reveal">What NutriDac is</div>
+    <h2 class="big reveal">Food with a purpose.</h2>
+    <p class="lede reveal" style="max-width:58ch">A range of protein- and nutrition-rich foods designed for modern life — starting focused, thought through, and built to actually enjoy.</p>
+    <div class="pillars">
+      <div class="pillar reveal"><span class="idx">01</span><div><h3>Taste</h3><p>The part most “health food” forgets. We start here.</p></div></div>
+      <div class="pillar reveal"><span class="idx">02</span><div><h3>Nutrition</h3><p>Protein-rich, plant-forward, genuinely nourishing.</p></div></div>
+      <div class="pillar reveal"><span class="idx">03</span><div><h3>Convenience</h3><p>Made to fit a real, fast-moving routine.</p></div></div>
+      <div class="pillar reveal"><span class="idx">04</span><div><h3>Wellness</h3><p>Food that leaves you better than it found you.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE'RE BUILDING -->
+<section class="band dark">
+  <div class="wrap">
+    <div class="eyebrow reveal">The pipeline</div>
+    <h2 class="big reveal">This is just the beginning.</h2>
+    <p class="lede reveal" style="max-width:58ch">We're starting with a focused first product and growing into a full nutrition-food range. Here's where we're headed — and your waitlist answers help decide what comes first.</p>
+    <div class="tiles">
+      <div class="tile reveal"><div class="blur b1"></div><div class="tag">In development</div><h3>Protein foods</h3></div>
+      <div class="tile reveal"><div class="blur b2"></div><div class="tag">In development</div><h3>Soya products</h3></div>
+      <div class="tile reveal"><div class="blur b3"></div><div class="tag">In development</div><h3>Healthy snacks</h3></div>
+      <div class="tile reveal"><div class="blur b4"></div><div class="tag">In development</div><h3>Everyday wellness</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow reveal">Made for</div>
+    <h2 class="big reveal">If this sounds like you, you're early for a reason.</h2>
+    <div class="ids">
+      <div class="idc reveal"><div class="k">The</div><h3>Busy Professional</h3><p>Needs nutrition that keeps up with a packed day.</p></div>
+      <div class="idc reveal"><div class="k">The</div><h3>Fitness-Minded</h3><p>Looks for protein-rich food that fits the goal.</p></div>
+      <div class="idc reveal"><div class="k">The</div><h3>Everyday Food Lover</h3><p>Wants taste and nutrition in the same bite.</p></div>
+      <div class="idc reveal"><div class="k">The</div><h3>Wellness Explorer</h3><p>Always hunting for a better everyday food choice.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY JOIN NOW -->
+<section class="band sand">
+  <div class="wrap">
+    <div class="eyebrow reveal">Founding members</div>
+    <h2 class="big reveal">Get more than early access.</h2>
+    <p class="lede reveal" style="max-width:54ch;color:#6a5c3f">Joining now isn't just a reminder for launch day — it's a seat at the table while NutriDac takes shape.</p>
+    <div class="bens">
+      <div class="ben reveal"><div class="n">1</div><div><h3>First taste</h3><p>Be among the first to try what we launch.</p></div></div>
+      <div class="ben reveal"><div class="n">2</div><div><h3>Launch pricing</h3><p>Founding-member pricing when we go live.</p></div></div>
+      <div class="ben reveal"><div class="n">3</div><div><h3>Shape what we build</h3><p>Your interests decide which product comes first.</p></div></div>
+      <div class="ben reveal"><div class="n">4</div><div><h3>Behind the scenes</h3><p>Follow the journey from idea to shelf.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="band cream2">
+  <div class="wrap" style="text-align:center">
+    <div class="seal reveal"><img src="logo.jpg" width="130" height="130" alt="NutriDac — Eat Nutritious, Feel Delicious"></div>
+    <div class="eyebrow reveal">Our promise</div>
+    <h2 class="big reveal" style="max-width:18ch;margin-left:auto;margin-right:auto">Built responsibly, from day one.</h2>
+    <p class="lede reveal" style="max-width:56ch;margin:0 auto">We're new — and we'd rather earn your trust than borrow it. No inflated claims, no fake badges. Full nutrition details and certifications (FSSAI and more) go here the moment they're real.</p>
+    <div class="principles reveal" style="max-width:340px;margin:22px auto 0;text-align:left">
+      <div class="principle">Quality-first formulation</div>
+      <div class="principle">Honest, transparent labelling</div>
+      <div class="principle">Nutrition before hype</div>
+      <div class="principle">Responsible sourcing &amp; making</div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="band dark" id="waitlist">
+  <div class="wrap">
+    <div class="formwrap">
+      <div>
+        <div class="eyebrow reveal">Join the waitlist</div>
+        <h2 class="big reveal">Be first to taste what's next.</h2>
+        <p class="lede reveal" style="max-width:44ch">Join the founding community for launch news, first taste, and a real say in what we make first. It takes ten seconds.</p>
+      </div>
+      <div class="reveal">
+        <form class="formcard" id="waitForm" novalidate>
+          <div class="field">
+            <label for="w-email">Email <span class="req">· required</span></label>
+            <input id="w-email" type="email" name="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+          </div>
+          <div class="field">
+            <label for="w-wa">WhatsApp number</label>
+            <input id="w-wa" type="tel" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="+91 ·  we'll ping you at launch">
+          </div>
+          <div class="field">
+            <label for="w-name">Name <span style="opacity:.6">· optional</span></label>
+            <input id="w-name" type="text" name="name" autocomplete="name" placeholder="Your name">
+          </div>
+          <div class="field">
+            <label>What are you into? <span class="req">· helps us decide what to launch</span></label>
+            <div class="chips" data-group="interests">
+              <button type="button" class="chip" aria-pressed="false">Protein-rich foods</button>
+              <button type="button" class="chip" aria-pressed="false">Soya products</button>
+              <button type="button" class="chip" aria-pressed="false">Healthy snacks</button>
+              <button type="button" class="chip" aria-pressed="false">Everyday wellness</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>How did you hear about us?</label>
+            <div class="chips" data-group="source" data-single="true">
+              <button type="button" class="chip" aria-pressed="false">Instagram</button>
+              <button type="button" class="chip" aria-pressed="false">Google</button>
+              <button type="button" class="chip" aria-pressed="false">A friend</button>
+              <button type="button" class="chip" aria-pressed="false">Other</button>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-gold">Join NutriDac →</button>
+          <div class="form-err" id="waitErr">Something went wrong — please try again, or email hello@nutridac.com.</div>
+        </form>
+        <div class="form-ok" id="waitOk">
+          <div class="big">You're in. <em>🌱</em></div>
+          <p>Welcome to the NutriDac founding community. We'll be in touch with launch news and your first taste.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="band dark final" style="padding-top:20px">
+  <div class="wrap">
+    <h2 class="reveal">Better food is only the beginning.</h2>
+    <p class="lede reveal">NutriDac is just getting started. Be part of it from day one.</p>
+    <a href="#waitlist" class="btn btn-gold reveal">Join the waitlist →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div style="max-width:34ch">
+        <div class="brand" style="font-size:22px">Nutri<i style="color:var(--leaf);font-style:normal">Dac</i></div>
+        <p style="margin-top:8px;color:#8fa384">Eat Nutritious · Feel Delicious</p>
+      </div>
+      <div class="cols">
+        <div>
+          <div style="color:var(--on-dark);font-weight:700;margin-bottom:8px">Contact</div>
+          <a href="mailto:hello@nutridac.com">hello@nutridac.com</a>
+        </div>
+        <div>
+          <div style="color:var(--on-dark);font-weight:700;margin-bottom:8px">Follow</div>
+          <a href="#" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="fine">
+      © 2026 NutriDac. Made in India. &nbsp;·&nbsp; Nutrition claims and certifications will be published as products launch.
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky" id="sticky"><a href="#waitlist" class="btn btn-gold">Join the waitlist →</a></div>
+
+<script>
+/* ===== Web3Forms — paste your free access key from https://web3forms.com =====
+   Leave as-is to run in DEMO mode (shows the success state without sending),
+   which is perfect for previewing. Once you add a real key, submissions are
+   emailed to the address that owns the key. */
+const WEB3FORMS_KEY = "REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY";
+const DEMO = WEB3FORMS_KEY.startsWith("REPLACE");
+
+/* ---- progressive enhancement for reveals ---- */
+(function(){
+  var motionOK = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(motionOK){
+    document.documentElement.classList.add("animate");
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    },{rootMargin:"0px 0px -8% 0px",threshold:0.08});
+    document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+    // failsafe: reveal everything after 2.5s in case observer misfires
+    setTimeout(function(){ document.querySelectorAll(".reveal:not(.in)").forEach(function(el){ el.classList.add("in"); }); }, 2500);
+  }
+})();
+
+/* ---- header + sticky bar on scroll ---- */
+var nav = document.getElementById("nav"), sticky = document.getElementById("sticky");
+function onScroll(){
+  var y = window.scrollY || 0;
+  nav.classList.toggle("scrolled", y > 30);
+  var heroH = document.getElementById("top").offsetHeight;
+  var wl = document.getElementById("waitlist");
+  var nearForm = wl.getBoundingClientRect().top < window.innerHeight * 0.9;
+  sticky.classList.toggle("show", y > heroH * 0.55 && !nearForm);
+}
+window.addEventListener("scroll", onScroll, {passive:true});
+window.addEventListener("resize", onScroll); onScroll();
+
+/* ---- chip toggles ---- */
+document.querySelectorAll(".chips").forEach(function(group){
+  var single = group.dataset.single === "true";
+  group.addEventListener("click", function(e){
+    var chip = e.target.closest(".chip"); if(!chip) return;
+    if(single){ group.querySelectorAll(".chip").forEach(function(c){ if(c!==chip) c.setAttribute("aria-pressed","false"); }); }
+    chip.setAttribute("aria-pressed", chip.getAttribute("aria-pressed")==="true" ? "false" : "true");
+  });
+});
+function collectChips(sel){
+  return Array.from(document.querySelectorAll(sel+' .chip[aria-pressed="true"]')).map(function(c){return c.textContent.trim();}).join(", ");
+}
+
+/* ---- submit helper ---- */
+async function sendLead(payload){
+  if(DEMO) return true; // preview mode
+  try{
+    var res = await fetch("https://api.web3forms.com/submit",{
+      method:"POST", headers:{"Content-Type":"application/json", Accept:"application/json"},
+      body: JSON.stringify(Object.assign({access_key: WEB3FORMS_KEY}, payload))
+    });
+    return res.ok;
+  }catch(err){ return false; }
+}
+function isEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+/* ---- hero mini form (email only) ---- */
+document.getElementById("heroForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+  var input = this.email, btn = this.querySelector("button");
+  if(!isEmail(input.value)){ input.focus(); input.style.boxShadow="0 0 0 3px rgba(192,64,44,.4)"; return; }
+  btn.disabled = true; btn.textContent = "Joining…";
+  var ok = await sendLead({subject:"New NutriDac waitlist signup (hero)", from_name:"NutriDac site", email:input.value, source_form:"hero"});
+  if(ok){ this.style.display="none"; document.querySelector(".fine").style.display="none"; document.getElementById("heroOk").style.display="block"; }
+  else { btn.disabled=false; btn.textContent="Join the waitlist →"; alert("Something went wrong — please try the form lower down, or email hello@nutridac.com."); }
+});
+
+/* ---- full waitlist form ---- */
+document.getElementById("waitForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+  var email = this.email, err = document.getElementById("waitErr");
+  err.style.display="none";
+  if(!isEmail(email.value)){ email.focus(); email.style.boxShadow="0 0 0 3px rgba(192,64,44,.45)"; return; }
+  var btn = this.querySelector('button[type=submit]');
+  btn.disabled = true; btn.textContent = "Joining…";
+  var ok = await sendLead({
+    subject:"New NutriDac waitlist signup",
+    from_name:"NutriDac site",
+    email: email.value,
+    whatsapp: this.whatsapp.value,
+    name: this.name.value,
+    interests: collectChips('[data-group="interests"]'),
+    heard_from: collectChips('[data-group="source"]'),
+    source_form:"waitlist"
+  });
+  if(ok){ this.style.display="none"; document.getElementById("waitOk").style.display="block";
+          document.getElementById("waitOk").scrollIntoView({behavior:"smooth",block:"center"}); }
+  else { btn.disabled=false; btn.textContent="Join NutriDac →"; err.style.display="block"; }
+});
+</script>
+</body>
+</html>
