@@ -11,7 +11,7 @@ Render reads `render.yaml` automatically (Blueprint), so:
 1. Push this folder to a GitHub repo.
 2. [Render Dashboard](https://dashboard.render.com) → **New → Blueprint** → pick the repo → **Apply**.
    *(Manual alternative: New → Static Site → Build Command: blank · Publish Directory: `./`)*
-3. Live in ~1 min at `https://nutridac-waitlist.onrender.com` with free HTTPS.
+3. Live in ~1 min at `https://nutridac.onrender.com` with free HTTPS.
 4. Custom domain: service → **Settings → Custom Domains** → add `nutridac.com` and set the DNS record Render shows.
 
 Every `git push` auto-redeploys.

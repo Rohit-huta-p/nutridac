@@ -1,7 +1,7 @@
 # Render Blueprint — deploys the NutriDac waitlist as a free Static Site.
 # Docs: https://render.com/docs/blueprint-spec
 services:
-  - name: nutridac-waitlist
+  - name: nutridac
     type: web
     runtime: static
     buildCommand: echo "static site — no build step"
